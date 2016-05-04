@@ -6,6 +6,10 @@ This document describes changes between each past release.
 0.4.0 (unreleased)
 ------------------
 
+**New features**
+
+- Add debug message when a resource is not configured to be signed (fixes #72)
+
 **Bug fix**
 
 - Return 503 instead of 500 when signing fails (fixes #71)

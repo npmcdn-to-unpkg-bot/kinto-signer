@@ -24,12 +24,14 @@ def on_collection_changed(event, resources):
 
     # Only sign the configured resources.
     if resource is None:
+        logger.debug("{0} is not listed in resources, do nothing.".format(key))
         return
 
     # Only sign when the new collection status is "to-sign".
     should_sign = any([True for r in event.impacted_records
                        if r['new'].get('status') == 'to-sign'])
     if not should_sign:
+        logger.debug("Status of {0} is not 'to-sign', do nothing".format(key))
         return
 
     registry = event.request.registry
